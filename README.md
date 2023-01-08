@@ -32,11 +32,28 @@ reboot
 Install prereqs
 sudo apt-get install -y stm32flash vim git gcc-arm-none-eabi  libnewlib-arm-none-eabi libstdc++-arm-none-eabi-newlib
 
-Download and compile Firmware
+Download this repo and install
+modem_update.sh
+
+Install GPIO programmer
+cd ~
+git clone https://github.com/friendlyarm/WiringNP
+cd WiringNP/
+git checkout nanopi-m1
+chmod 755 build
+./build
+sudo cp ./gpio/gpio /usr/local/bin/
+
+
+
+Download compile and install Firmware
 git clone https://github.com/g4klx/mmdvm
 cd mmdvm
 git submodule init
 git submodule update
 make eda405 or make eda405 #depending on hardware
 cp bin/mmdvm_f4.hex ~/
+cd ~
+modem_update.sh mmdvm_f4.hex
+
 
