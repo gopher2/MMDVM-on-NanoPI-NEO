@@ -10,7 +10,7 @@ login root / 1234
 
 # Install prereqs
 ```
-sudo apt-get install -y stm32flash vim git gcc-arm-none-eabi  libnewlib-arm-none-eabi libstdc++-arm-none-eabi-newlib 
+sudo apt-get install -y stm32flash vim git gcc-arm-none-eabi  libnewlib-arm-none-eabi libstdc++-arm-none-eabi-newlib build-essential
 ```
 
 # Basics
@@ -67,5 +67,14 @@ cp bin/mmdvm_f4.hex ~/
 cd ~
 modem_update.sh mmdvm_f4.hex
 ```
+
+# MMDVM Host Software
+cd ~
+git clone https://github.com/g4klx/MMDVMHost.git
+cd MMDVMHost
+make
+sudo make install
+sudo make install-service
+
 
 
